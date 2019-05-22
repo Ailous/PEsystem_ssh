@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.serve.static.browserCache" value="false"/>
+	<constant name="struts.configuration.xml.reload" value="true"/>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.objectFactory" value="spring" />
+	
+	<package name="default" extends="struts-default">
+		
+		<!-- 拦截器 -->
+		<interceptors>  
+            <interceptor name="checkUserLogin" class="interceptor.LoginInterceptor"></interceptor>
+            <!-- 拦截器栈 -->  
+            <interceptor-stack name="myStack">  
+                <interceptor-ref name="defaultStack" />  
+                <interceptor-ref name="checkUserLogin" />  
+            </interceptor-stack>  
+        </interceptors>
+        
+        <!-- ==========User==================================================================== -->
+        <!-- 登陆界面的Action -->
+        <action name="loginAction" class="web.action.LoginAction">
+			<result name="student">/student_main.jsp</result>
+			<result name="teacher">/teacher_main.jsp</result>
+			<result name="admin">/admin_main.jsp</result>
+			<result name="input">/index.jsp</result>
+		</action>
+		<!-- 退出登录 -->
+		<action name="logoutAction" class="web.action.LogoutAction">
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/index.jsp</result>
+		</action>
+		<!-- ==================================================================================== -->
+		
+		<!-- ==========Student================ -->
+		<!-- 学生显示个人信息 -->
+		<action name="student_infoAction" class="web.action.Student_infoAction">
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/student_info.jsp</result>
+		</action>
+		<!-- 更新电话 -->
+		<action name="student_changePhone" class="web.action.Student_changePhone">
+			<result name="success">/student_success.jsp</result>
+			<result name="input">/student_changePhone.jsp</result>
+		</action>
+		<!-- 修改密码-->
+		<action name="student_changePwdAction" class="web.action.Student_changePwdAction">
+			<result name="success">/student_success.jsp</result>
+			<result name="input">/student_changePwd.jsp</result>
+		</action>
+		<!-- 学生选课显示所有的开课班 -->
+		<action name="student_showAllClassAction" class="web.action.Student_showAllClassAction">
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/student_showAllClass.jsp</result>
+			<result name="input">/student_main.jsp</result>
+		</action>
+		<!-- 学生选中该门开课班 -->
+		<action name="chooseClassAction" class="web.action.ChooseClassAction">  
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/student_success.jsp</result>
+			<result name="input">/student_fail.jsp</result>
+		</action>
+		<!-- 学生选课信息以及成绩 -->
+		<action name="student_scoreInfoAction" class="web.action.Student_scoreInfo">
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/student_scoreInfo.jsp</result>
+			<result name="input">/student_scoreInfo_null.jsp</result>
+		</action>
+		<!-- ================================= -->
+		
+		
+		<!-- ==========Teacher================ -->
+		<!-- 个人信息 -->
+		<action name="teacher_infoAction" class="web.action.Teacher_infoAction">
+			<result name="success">/teacher_info.jsp</result>
+		</action>
+		<!-- 更新电话 -->
+		<action name="teacher_changePhone" class="web.action.Teacher_changePhone">
+			<result name="success">/teacher_success.jsp</result>
+			<result name="input">/teacher_fail.jsp</result>
+		</action>
+		<!-- 修改密码-->
+		<action name="teacher_changePwdAction" class="web.action.Teacher_changePwdAction">  
+			<result name="success">/teacher_success.jsp</result>
+			<result name="input">/teacher_changePwd.jsp</result>
+		</action>
+		<action name="teacher_allClassInfoAction" class="web.action.Teacher_allClassInfoAction">  <!-- 教师查看所有班级 -->
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/teacher_allClass.jsp</result>
+		</action>
+		<!-- 班级里学生的详细信息 -->
+		<action name="classDetailAction" class="web.action.ClassDetailAction">  
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/teacher_classDetail.jsp</result>
+		</action>
+		<!-- 教师修改学生成绩 -->
+		<action name="refreshStuScoreAction" class="web.action.RefreshStuScoreAction">  
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/teacher_thisStudent.jsp</result>
+		</action>
+		<!-- 确认修改学生成绩 -->
+		<action name="changeScoreAction" class="web.action.ChangeScoreAction">  
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/teacher_success.jsp</result>
+			
+		</action>
+		<!-- ================================= -->
+		
+		
+		<!-- ==========Admin================== -->
+		<!-- admin 显示所有学生的信息 -->
+		<action name="admin_allStuAction" class="web.action.Admin_allStuAction">  
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/admin_stuInfo.jsp</result>
+			
+		</action>
+		<!-- admin 删除某一个学生 -->
+		<action name="admin_deleteThisStuAction" class="web.action.Admin_deleteThisStuAction">  
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/admin_success.jsp</result>
+			<result name="input">/admin_fail.jsp</result>
+		</action>
+		<!-- 添加学生信息 -->
+		<action name="admin_addStuAction" class="web.action.Admin_addStuAction">  
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/admin_success.jsp</result>
+			<result name="input">/admin_addStu.jsp</result>
+		</action>
+		<!-- admin 添加教师信息 -->
+		<action name="admin_addTeaAction" class="web.action.admin_addTeacher">  
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/admin_success.jsp</result>
+			<result name="input">/admin_addTeacher.jsp</result>
+		</action>
+		<!-- admin 查看所有教师信息 -->
+		<action name="admin_allTeaAction" class="web.action.Admin_allTeaAction">  
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/admin_allTeacherInfo.jsp</result>
+		</action>
+		<!-- admin 删除指定教师 -->
+		<action name="admin_deleteThisTeaAction" class="web.action.Admin_deleteThisTeaAction">  
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/admin_success.jsp</result>
+			<result name="input">/admin_fail.jsp</result>
+		</action>
+		<!-- 查看所有课程信息 -->
+		<action name="admin_allCourseInfo" class="web.action.Admin_allCourseInfo">
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/admin_allCourseInfo.jsp</result>
+		</action>
+		<!-- 删除某一门课程 -->
+		<action name="admin_deleteThisCouAction" class="web.action.Admin_deleteThisCouAction">
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/admin_success.jsp</result>
+			<result name="input">/admin_fail.jsp</result>
+		</action>
+		<!-- 添加课程 -->
+		<action name="admin_addCourseAction" class="web.action.Admin_addCourseAction">
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/admin_success.jsp</result>
+			<result name="input">/admin_addCourse.jsp</result>
+		</action>
+		<!-- 所有开课班信息 -->
+		<action name="admin_allStartClassInfo" class="web.action.Admin_allStartClassInfo">
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/admin_allStartClassInfo.jsp</result>
+		</action>
+		<!-- 删除某一开课班 -->
+		<action name="admin_deleteThisStartClassAction" class="web.action.Admin_deleteThisStartClassAction">
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/admin_success.jsp</result>
+			<result name="input">/admin_fail.jsp</result>
+		</action>
+		<!-- 添加开课班 -->
+		<action name="admin_addStartClassAction" class="web.action.Admin_addStartClassAction">
+			<interceptor-ref name="myStack"></interceptor-ref>
+			<result name="error">/unLogin.jsp</result>
+			<result name="success">/admin_success.jsp</result>
+			<result name="input">/admin_addStartClass.jsp</result>
+		</action>
+		<!-- ================================= -->
+	
+	</package>
+</struts>
