@@ -37,13 +37,19 @@ public class ChangeScoreAction extends ActionSupport implements ModelDriven<refr
 	
 	public void validate(){
 		if(isNumeric(rs.getScore1())==false || isNumeric(rs.getScore2())==false || isNumeric(rs.getScore3())==false)
-			this.addFieldError("score1", "请输入整数的分数");
+			this.addFieldError("score1", "请输入整数分数");
 		else if(rs.getScore1().length()<=0 || rs.getScore1().length()>3)
-			this.addFieldError("score1", "分数输入不完整,请继续输入分数");
+			this.addFieldError("score1", "请输入平时成绩，并且分数为0-100分");
 		else if(rs.getScore2().length()<=0 || rs.getScore2().length()>3)
-			this.addFieldError("score2", "分数输入不完整,请继续输入分数");
+			this.addFieldError("score2", "请输入理论成绩，并且分数为0-100分");
 		else if(rs.getScore3().length()<=0 || rs.getScore3().length()>3)
-			this.addFieldError("score3", "分数输入不完整,请继续输入分数");
+			this.addFieldError("score3", "请输入期末考核成绩，并且分数为0-100分");
+		else if(rs.getScore1().length()==3 && !rs.getScore1().equals("100"))
+			this.addFieldError("score1", "分数不能超过100分");
+		else if(rs.getScore2().length()==3 && !rs.getScore2().equals("100"))
+			this.addFieldError("score2", "分数不能超过100分");
+		else if(rs.getScore3().length()==3 && !rs.getScore3().equals("100"))
+			this.addFieldError("score3", "分数不能超过100分");
 		else{}
 	}
 	

@@ -116,7 +116,7 @@
 			<interceptor-ref name="myStack"></interceptor-ref>
 			<result name="error">/unLogin.jsp</result>
 			<result name="success">/teacher_success.jsp</result>
-			
+			<result name="input">/teacher_thisStudent.jsp</result>
 		</action>
 		<!-- ================================= -->
 		
