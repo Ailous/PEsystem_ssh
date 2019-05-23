@@ -16,8 +16,10 @@
 	
     <s:form theme="simple" method="post" action="changeScoreAction.action">
     	<s:hidden name="thisStu.id"></s:hidden>
+    	<!--  
     	<s:text name="学号："></s:text><s:text name="thisStu.student.stuNo"></s:text><br/>
 	    <s:text name="姓名："></s:text><s:text name="thisStu.student.stuName"></s:text><br/>
+	    -->
 	    <s:text name="平时成绩："></s:text><s:textfield name="score1"></s:textfield><br/>
 	    <s:text name="理论成绩："></s:text><s:textfield name="score2"></s:textfield><br/>
 	    <s:text name="期末考核："></s:text><s:textfield name="score3"></s:textfield><br/>
