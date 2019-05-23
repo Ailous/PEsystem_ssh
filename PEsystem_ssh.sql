@@ -1,190 +1,190 @@
-create database PEsystem_zb
-use PEsystem_zb
+create database PEsystem_ssh
+use PEsystem_ssh
 
-create table College(             --Ñ§Ôº
+create table College(             --å­¦é™¢
 	id int primary key,             --id
-	colName nvarchar(15) not null   --Ñ§ÔºÃû³Æ
+	colName nvarchar(15) not null   --å­¦é™¢åç§°
 )
 
-insert into College values('¼ÆËã»úÑ§Ôº')
-insert into College values('ÉÌÑ§Ôº')
-insert into College values('º½¿ÕÑ§Ôº')
-insert into College values('ĞÅÏ¢Ñ§Ôº')
-insert into College values('Íâ¹úÓïÑ§Ôº')
-insert into College values('¹¤Òµ×Ô¶¯»¯Ñ§Ôº')
-insert into College values('Éè¼ÆÓëÒÕÊõÑ§Ôº')
-insert into College values('²ÄÁÏÓë»·¾³Ñ§Ôº')
-insert into College values('»á¼ÆÓë½ğÈÚÑ§Ôº')
+insert into College values('è®¡ç®—æœºå­¦é™¢')
+insert into College values('å•†å­¦é™¢')
+insert into College values('èˆªç©ºå­¦é™¢')
+insert into College values('ä¿¡æ¯å­¦é™¢')
+insert into College values('å¤–å›½è¯­å­¦é™¢')
+insert into College values('å·¥ä¸šè‡ªåŠ¨åŒ–å­¦é™¢')
+insert into College values('è®¾è®¡ä¸è‰ºæœ¯å­¦é™¢')
+insert into College values('ææ–™ä¸ç¯å¢ƒå­¦é™¢')
+insert into College values('ä¼šè®¡ä¸é‡‘èå­¦é™¢')
 select * from College
 
-create table Profession(          --×¨Òµ
-	id int primary key,             --id(3Î»Êı£©
-	col_id int,                      --Íâ¼ü Ñ§ÔºCollegeµÄid
-	proName nvarchar(15) not null,  --×¨ÒµÃû³Æ
+create table Profession(          --ä¸“ä¸š
+	id int primary key,             --id(3ä½æ•°ï¼‰
+	col_id int,                      --å¤–é”® å­¦é™¢Collegeçš„id
+	proName nvarchar(15) not null,  --ä¸“ä¸šåç§°
 	constraint ProfessionFK1 foreign key(col_id) references College(id)
 )
 
-insert into Profession values(1, 'Èí¼ş¹¤³Ì')
-insert into Profession values(1, 'Êı×ÖÃ½Ìå¼¼Êõ')
-insert into Profession values(1, 'ÍøÂç¹¤³Ì')
-insert into Profession values(1, '¼ÆËã»ú¿ÆÑ§Óë¼¼Êõ')
-insert into Profession values(2, 'ÊĞ³¡ÓªÏú')
-insert into Profession values(2, 'ÎïÁ÷¹ÜÀí')
-insert into Profession values(3, '·ÉĞĞ¼¼Êõ')
-insert into Profession values(3, '½»Í¨ÔËÊä')
-insert into Profession values(4, 'Í¨ĞÅ¹¤³Ì')
-insert into Profession values(4, 'ĞÅÏ¢¹¤³Ì')
-insert into Profession values(4, '×Ô¶¯»¯')
-insert into Profession values(4, 'µçÆø¹¤³Ì¼°Æä×Ô¶¯»¯')
-insert into Profession values(5, 'ÉÌÎñÓ¢Óï')
-insert into Profession values(5, 'Ó¢Óï')
-insert into Profession values(5, 'ÈÕÓï')
-insert into Profession values(5, '·­Òë')
-insert into Profession values(6, '»úĞµµç×Ó¹¤³Ì')
-insert into Profession values(6, '³µÁ¾¹¤³Ì')
-insert into Profession values(6, '½»Í¨¹¤³Ì')
-insert into Profession values(6, '¹¤Òµ¹¤³Ì')
-insert into Profession values(7, '»·¾³Éè¼Æ')
-insert into Profession values(7, '·ş×°Óë·şÊÎÉè¼Æ')
-insert into Profession values(7, '²úÆ·Éè¼Æ')
-insert into Profession values(7, '¹¤ÒÕÃÀÊõ')
-insert into Profession values(7, 'Êı×ÖÃ½ÌåÒÕÊõ')
-insert into Profession values(8, '»·¾³¹¤³Ì')
-insert into Profession values(8, 'ÉúÎï¹¤³Ì')
-insert into Profession values(8, 'Ó¦ÓÃ»¯Ñ§')
-insert into Profession values(8, '°²È«¹¤³Ì')
-insert into Profession values(9, '»á¼ÆÑ§')
-insert into Profession values(9, '²ÆÎñ¹ÜÀí')
-insert into Profession values(9, '½ğÈÚ¹¤³Ì')
-insert into Profession values(9, 'Éó¼ÆÑ§')
+insert into Profession values(1, 'è½¯ä»¶å·¥ç¨‹')
+insert into Profession values(1, 'æ•°å­—åª’ä½“æŠ€æœ¯')
+insert into Profession values(1, 'ç½‘ç»œå·¥ç¨‹')
+insert into Profession values(1, 'è®¡ç®—æœºç§‘å­¦ä¸æŠ€æœ¯')
+insert into Profession values(2, 'å¸‚åœºè¥é”€')
+insert into Profession values(2, 'ç‰©æµç®¡ç†')
+insert into Profession values(3, 'é£è¡ŒæŠ€æœ¯')
+insert into Profession values(3, 'äº¤é€šè¿è¾“')
+insert into Profession values(4, 'é€šä¿¡å·¥ç¨‹')
+insert into Profession values(4, 'ä¿¡æ¯å·¥ç¨‹')
+insert into Profession values(4, 'è‡ªåŠ¨åŒ–')
+insert into Profession values(4, 'ç”µæ°”å·¥ç¨‹åŠå…¶è‡ªåŠ¨åŒ–')
+insert into Profession values(5, 'å•†åŠ¡è‹±è¯­')
+insert into Profession values(5, 'è‹±è¯­')
+insert into Profession values(5, 'æ—¥è¯­')
+insert into Profession values(5, 'ç¿»è¯‘')
+insert into Profession values(6, 'æœºæ¢°ç”µå­å·¥ç¨‹')
+insert into Profession values(6, 'è½¦è¾†å·¥ç¨‹')
+insert into Profession values(6, 'äº¤é€šå·¥ç¨‹')
+insert into Profession values(6, 'å·¥ä¸šå·¥ç¨‹')
+insert into Profession values(7, 'ç¯å¢ƒè®¾è®¡')
+insert into Profession values(7, 'æœè£…ä¸æœé¥°è®¾è®¡')
+insert into Profession values(7, 'äº§å“è®¾è®¡')
+insert into Profession values(7, 'å·¥è‰ºç¾æœ¯')
+insert into Profession values(7, 'æ•°å­—åª’ä½“è‰ºæœ¯')
+insert into Profession values(8, 'ç¯å¢ƒå·¥ç¨‹')
+insert into Profession values(8, 'ç”Ÿç‰©å·¥ç¨‹')
+insert into Profession values(8, 'åº”ç”¨åŒ–å­¦')
+insert into Profession values(8, 'å®‰å…¨å·¥ç¨‹')
+insert into Profession values(9, 'ä¼šè®¡å­¦')
+insert into Profession values(9, 'è´¢åŠ¡ç®¡ç†')
+insert into Profession values(9, 'é‡‘èå·¥ç¨‹')
+insert into Profession values(9, 'å®¡è®¡å­¦')
 select * from Profession
 
-create table Student(              --Ñ§Éú
+create table Student(              --å­¦ç”Ÿ
 	id int primary key,              --id
-	pro_id int,                       --Íâ¼ü ×¨ÒµProfessionµÄid
-	stuNo nvarchar(12),              --Ñ§ºÅ 2016 001 00001  ¡¾ÎªÁË·½±ã£¬Äã²åÈëÊı¾İµÄÊ±ºò¾ÍÊÇÄê¼¶+id  2016  00001 -¡·9Î»Êı×Ö¾ÍºÃÁË¡¿
-	stuName nvarchar(30) not null,    --ĞÕÃû
-	stuSex nvarchar(4) not null,      --ĞÔ±ğ
-	stuPhone nvarchar(12),            --ÁªÏµµç»°
-	stuPassword nvarchar(20) not null,--ÃÜÂë
+	pro_id int,                       --å¤–é”® ä¸“ä¸šProfessionçš„id
+	stuNo nvarchar(12),              --å­¦å· 2016 001 00001  ã€ä¸ºäº†æ–¹ä¾¿ï¼Œä½ æ’å…¥æ•°æ®çš„æ—¶å€™å°±æ˜¯å¹´çº§+id  2016  00001 -ã€‹9ä½æ•°å­—å°±å¥½äº†ã€‘
+	stuName nvarchar(30) not null,    --å§“å
+	stuSex nvarchar(4) not null,      --æ€§åˆ«
+	stuPhone nvarchar(12),            --è”ç³»ç”µè¯
+	stuPassword nvarchar(20) not null,--å¯†ç 
 	constraint StudentFK1 foreign key(pro_id) references Profession(id)
 )
 
-insert into Student values(1, '201600001', '»ÆÔó±ò', 'ÄĞ', '13134567890', '1234')
-insert into Student values(1, '201600002', 'ºúÎÄå«', 'ÄĞ', '13134567891', '1234')
-insert into Student values(1, '201600003', 'ĞÜ¾ı', 'ÄĞ', '13134567892', '1234')
-insert into Student values(1, '201600004', 'ÕÅĞ¡¾ê', 'Å®', '13134567893', '1234')
-insert into Student values(1, '201600005', 'ÕÅÂ¶', 'Å®', '13134567894', '1234')
-insert into Student values(1, '201600006', 'Ó÷×ÔÇ¿', 'ÄĞ', '13134567895', '1234')
-insert into Student values(1, '201600007', 'Áõ·ï', 'Å®', '13134567896', '1234')
-insert into Student values(1, '201600008', '¸ß´úÅô', 'ÄĞ', '13134567897', '1234')
-insert into Student values(1, '201600009', 'ÕÅÏşÃ·', 'Å®', '13134567898', '1234')
-insert into Student values(1, '201600010', '³Â»Ô', 'ÄĞ', '13134567899', '1234')
-insert into Student values(1, '201600011', 'ÕÅÁ¼', 'ÄĞ', '13134567880', '1234')
-insert into Student values(2, '201600012', 'Àîºç±ù', 'Å®', '13134567881', '1234')
-insert into Student values(2, '201600013', 'º«¸£Æ½', 'ÄĞ', '13134567882', '1234')
-insert into Student values(2, '201600014', 'ÑîŞÈ¶«', 'ÄĞ', '13134567883', '1234')
-insert into Student values(2, '201600015', 'Áõ½Ü', 'ÄĞ', '13134567884', '1234')
-insert into Student values(2, '201600016', 'ºÎÕòÓî', 'ÄĞ', '13134567885', '1234')
-insert into Student values(2, '201600017', 'ÁÖÍñÏ¼', 'Å®', '13134567886', '1234')
-insert into Student values(2, '201600018', 'Á¬Êï»Ô', 'ÄĞ', '13134567887', '1234')
-insert into Student values(2, '201600019', 'Àµ½õÌÎ', 'ÄĞ', '13134567888', '1234')
-insert into Student values(2, '201600020', 'ÁÎ¿¡½Ü', 'ÄĞ', '13134567889', '1234')
-insert into Student values(3, '201600021', '»ÆÑåºÀ', 'ÄĞ', '13134567870', '1234')
-insert into Student values(3, '201600022', 'Îâ¾²è¯', 'Å®', '13134567871', '1234')
-insert into Student values(3, '201600023', 'ÑîÜÆÉº', 'Å®', '13134567872', '1234')
-insert into Student values(3, '201600024', '¼òºÆÈ»', 'ÄĞ', '13134567873', '1234')
-insert into Student values(3, '201600025', '³Â¾¸½Ü', 'ÄĞ', '13134567874', '1234')
-insert into Student values(3, '201600026', 'ÉÛÃÎº­', 'Å®', '13134567875', '1234')
-insert into Student values(3, '201600027', 'ÖÓÎ°ÌÎ', 'ÄĞ', '13134567876', '1234')
-insert into Student values(3, '201600028', 'Ëï¾ºĞù', 'ÄĞ', '13134567877', '1234')
-insert into Student values(3, '201600029', 'º«è÷æµ', 'Å®', '13134567878', '1234')
-insert into Student values(3, '201600030', 'ÁõË¼Í¢', 'Å®', '13134567879', '1234')
-insert into Student values(4, '201600031', 'ÕÅÍñÕê', 'Å®', '13134567860', '1234')
-insert into Student values(4, '201600032', '¶ÅÅæ°º', 'ÄĞ', '13134567861', '1234')
-insert into Student values(4, '201600033', 'Àî¼ÑºÆ', 'ÄĞ', '13134567862', '1234')
-insert into Student values(4, '201600034', 'Ò¦½à', 'Å®', '13134567863', '1234')
-insert into Student values(4, '201600035', '½­¼Ñçä', 'Å®', '13134567864', '1234')
-insert into Student values(4, '201600036', 'Ğ»Ó¾»ù', 'ÄĞ', '13134567865', '1234')
-insert into Student values(4, '201600037', '½¹Âüä¿', 'Å®', '13134567866', '1234')
-insert into Student values(4, '201600038', '»Æî£', 'ÄĞ', '13134567867', '1234')
-insert into Student values(4, '201600039', '¹ØÓ±Ã·', 'Å®', '13134567868', '1234')
-insert into Student values(4, '201600040', '³ÂÈôÀÚ', 'ÄĞ', '13134567869', '1234')
-insert into Student values(5, '201600041', 'Íõ¹âÔó', 'ÄĞ', '13134567850', '1234')
-insert into Student values(5, '201600042', '³Â»ÛĞÀ', 'Å®', '13134567851', '1234')
-insert into Student values(5, '201600043', 'ÑîÀöÕä', 'Å®', '13134567852', '1234')
-insert into Student values(5, '201600044', 'Áºìãê»', 'ÄĞ', '13134567853', '1234')
-insert into Student values(5, '201600045', 'Ã·åû', 'Å®', '13134567854', '1234')
-insert into Student values(5, '201600046', 'ÕÅ¼ÑÁÕ', 'Å®', '13134567855', '1234')
-insert into Student values(5, '201600047', 'Óà¿Â·Æ', 'Å®', '13134567856', '1234')
-insert into Student values(5, '201600048', 'ÀîÓÑÌí', 'ÄĞ', '13134567857', '1234')
-insert into Student values(5, '201600049', '·ëÏş¾¸', 'Å®', '13134567858', '1234')
-insert into Student values(5, '201600050', 'ÍôÔÃ', 'ÄĞ', '13134567859', '1234')
-insert into Student values(5, '201600051', 'ºúÅô', 'ÄĞ', '13134565978', '1234')
+insert into Student values(1, '201600001', 'é»„æ³½å½¬', 'ç”·', '13134567890', '1234')
+insert into Student values(1, '201600002', 'èƒ¡æ–‡ç€š', 'ç”·', '13134567891', '1234')
+insert into Student values(1, '201600003', 'ç†Šå›', 'ç”·', '13134567892', '1234')
+insert into Student values(1, '201600004', 'å¼ å°å¨Ÿ', 'å¥³', '13134567893', '1234')
+insert into Student values(1, '201600005', 'å¼ éœ²', 'å¥³', '13134567894', '1234')
+insert into Student values(1, '201600006', 'å–»è‡ªå¼º', 'ç”·', '13134567895', '1234')
+insert into Student values(1, '201600007', 'åˆ˜å‡¤', 'å¥³', '13134567896', '1234')
+insert into Student values(1, '201600008', 'é«˜ä»£é¹', 'ç”·', '13134567897', '1234')
+insert into Student values(1, '201600009', 'å¼ æ™“æ¢…', 'å¥³', '13134567898', '1234')
+insert into Student values(1, '201600010', 'é™ˆè¾‰', 'ç”·', '13134567899', '1234')
+insert into Student values(1, '201600011', 'å¼ è‰¯', 'ç”·', '13134567880', '1234')
+insert into Student values(2, '201600012', 'æè™¹å†°', 'å¥³', '13134567881', '1234')
+insert into Student values(2, '201600013', 'éŸ©ç¦å¹³', 'ç”·', '13134567882', '1234')
+insert into Student values(2, '201600014', 'æ¨å¥•ä¸œ', 'ç”·', '13134567883', '1234')
+insert into Student values(2, '201600015', 'åˆ˜æ°', 'ç”·', '13134567884', '1234')
+insert into Student values(2, '201600016', 'ä½•é•‡å®‡', 'ç”·', '13134567885', '1234')
+insert into Student values(2, '201600017', 'æ—å©‰éœ', 'å¥³', '13134567886', '1234')
+insert into Student values(2, '201600018', 'è¿æ›™è¾‰', 'ç”·', '13134567887', '1234')
+insert into Student values(2, '201600019', 'èµ–é”¦æ¶›', 'ç”·', '13134567888', '1234')
+insert into Student values(2, '201600020', 'å»–ä¿Šæ°', 'ç”·', '13134567889', '1234')
+insert into Student values(3, '201600021', 'é»„å½¦è±ª', 'ç”·', '13134567870', '1234')
+insert into Student values(3, '201600022', 'å´é™ç’‡', 'å¥³', '13134567871', '1234')
+insert into Student values(3, '201600023', 'æ¨èŠ·çŠ', 'å¥³', '13134567872', '1234')
+insert into Student values(3, '201600024', 'ç®€æµ©ç„¶', 'ç”·', '13134567873', '1234')
+insert into Student values(3, '201600025', 'é™ˆé–æ°', 'ç”·', '13134567874', '1234')
+insert into Student values(3, '201600026', 'é‚µæ¢¦æ¶µ', 'å¥³', '13134567875', '1234')
+insert into Student values(3, '201600027', 'é’Ÿä¼Ÿæ¶›', 'ç”·', '13134567876', '1234')
+insert into Student values(3, '201600028', 'å­™ç«è½©', 'ç”·', '13134567877', '1234')
+insert into Student values(3, '201600029', 'éŸ©æ¢“å¨´', 'å¥³', '13134567878', '1234')
+insert into Student values(3, '201600030', 'åˆ˜æ€å»·', 'å¥³', '13134567879', '1234')
+insert into Student values(4, '201600031', 'å¼ å©‰è´', 'å¥³', '13134567860', '1234')
+insert into Student values(4, '201600032', 'æœæ²›æ˜‚', 'ç”·', '13134567861', '1234')
+insert into Student values(4, '201600033', 'æä½³æµ©', 'ç”·', '13134567862', '1234')
+insert into Student values(4, '201600034', 'å§šæ´', 'å¥³', '13134567863', '1234')
+insert into Student values(4, '201600035', 'æ±Ÿä½³çŸ', 'å¥³', '13134567864', '1234')
+insert into Student values(4, '201600036', 'è°¢æ³³åŸº', 'ç”·', '13134567865', '1234')
+insert into Student values(4, '201600037', 'ç„¦æ›¼æ·‡', 'å¥³', '13134567866', '1234')
+insert into Student values(4, '201600038', 'é»„ç¿', 'ç”·', '13134567867', '1234')
+insert into Student values(4, '201600039', 'å…³é¢–æ¢…', 'å¥³', '13134567868', '1234')
+insert into Student values(4, '201600040', 'é™ˆè‹¥ç£Š', 'ç”·', '13134567869', '1234')
+insert into Student values(5, '201600041', 'ç‹å…‰æ³½', 'ç”·', '13134567850', '1234')
+insert into Student values(5, '201600042', 'é™ˆæ…§æ¬£', 'å¥³', '13134567851', '1234')
+insert into Student values(5, '201600043', 'æ¨ä¸½ç', 'å¥³', '13134567852', '1234')
+insert into Student values(5, '201600044', 'æ¢ç…¦æ˜Š', 'ç”·', '13134567853', '1234')
+insert into Student values(5, '201600045', 'æ¢…å¦', 'å¥³', '13134567854', '1234')
+insert into Student values(5, '201600046', 'å¼ ä½³ç³', 'å¥³', '13134567855', '1234')
+insert into Student values(5, '201600047', 'ä½™æŸ¯è²', 'å¥³', '13134567856', '1234')
+insert into Student values(5, '201600048', 'æå‹æ·»', 'ç”·', '13134567857', '1234')
+insert into Student values(5, '201600049', 'å†¯æ™“é–', 'å¥³', '13134567858', '1234')
+insert into Student values(5, '201600050', 'æ±ªæ‚¦', 'ç”·', '13134567859', '1234')
+insert into Student values(5, '201600051', 'èƒ¡é¹', 'ç”·', '13134565978', '1234')
 
 select * from Student
 
-create table Teacher(             --½ÌÊ¦
+create table Teacher(             --æ•™å¸ˆ
 	id int primary key,
-	teaNo nvarchar(5),   --¹¤ºÅ  00001
-	teaName nvarchar(30) not null,    --ĞÕÃû
-	teaSex nvarchar(4) not null,      --ĞÔ±ğ
-	teaPhone nvarchar(12),            --ÁªÏµµç»°
-	teaPassword nvarchar(20) not null --ÃÜÂë
+	teaNo nvarchar(5),   --å·¥å·  00001
+	teaName nvarchar(30) not null,    --å§“å
+	teaSex nvarchar(4) not null,      --æ€§åˆ«
+	teaPhone nvarchar(12),            --è”ç³»ç”µè¯
+	teaPassword nvarchar(20) not null --å¯†ç 
 )
-insert into Teacher values('00001', 'ÕÅÀÏÊ¦', 'ÄĞ', '13145689899', '1234')
-insert into Teacher values('00002', '³ÂÀÏÊ¦', 'ÄĞ', '13145689898', '1234')
-insert into Teacher values('00003', 'ÁõÀÏÊ¦', 'ÄĞ', '13145689897', '1234')
-insert into Teacher values('00004', 'ÍõÀÏÊ¦', 'ÄĞ', '13145689896', '1234')
-insert into Teacher values('00005', 'ÕÔÀÏÊ¦', 'ÄĞ', '13145689896', '1234')
+insert into Teacher values('00001', 'å¼ è€å¸ˆ', 'ç”·', '13145689899', '1234')
+insert into Teacher values('00002', 'é™ˆè€å¸ˆ', 'ç”·', '13145689898', '1234')
+insert into Teacher values('00003', 'åˆ˜è€å¸ˆ', 'ç”·', '13145689897', '1234')
+insert into Teacher values('00004', 'ç‹è€å¸ˆ', 'ç”·', '13145689896', '1234')
+insert into Teacher values('00005', 'èµµè€å¸ˆ', 'ç”·', '13145689896', '1234')
 
 select * from Teacher
 
-create table Course(              --¿Î³Ì
+create table Course(              --è¯¾ç¨‹
 	id int primary key,
-	couName nvarchar(30)  not null,   --¿Î³ÌÃû
-	couHour int not null,             --¿ÎÊ±
-	couCredit int not null            --Ñ§·Ö
+	couName nvarchar(30)  not null,   --è¯¾ç¨‹å
+	couHour int not null,             --è¯¾æ—¶
+	couCredit int not null            --å­¦åˆ†
 )
 
-insert into Course values('Æ¹ÅÒÇò', 32, 2)
-insert into Course values('ÂÖ»¬', 32, 2)
-insert into Course values('É¢´ò', 32, 2)
-insert into Course values('ÍøÇò', 32, 2)
-insert into Course values('ÀºÇò', 32, 2)
+insert into Course values('ä¹’ä¹“çƒ', 32, 2)
+insert into Course values('è½®æ»‘', 32, 2)
+insert into Course values('æ•£æ‰“', 32, 2)
+insert into Course values('ç½‘çƒ', 32, 2)
+insert into Course values('ç¯®çƒ', 32, 2)
 
 select* from Course
 
-create table StartClass(               --¿ª¿Î°à
+create table StartClass(               --å¼€è¯¾ç­
 	id int primary key,--id
-	cou_id int,                  --¿Î³ÌºÅ(Íâ¼ü£©
-	tea_id int,                  --¹¤ºÅ(Íâ¼ü£©
-	claLocation nvarchar(50),            --ÉÏ¿ÎµØµã
-	claTime nvarchar(50),                --ÉÏ¿ÎÊ±¼ä
+	cou_id int,                  --è¯¾ç¨‹å·(å¤–é”®ï¼‰
+	tea_id int,                  --å·¥å·(å¤–é”®ï¼‰
+	claLocation nvarchar(50),            --ä¸Šè¯¾åœ°ç‚¹
+	claTime nvarchar(50),                --ä¸Šè¯¾æ—¶é—´
 	constraint StartClassFK1 foreign key(tea_id) references Teacher(id),
 	constraint StartClassFK2 foreign key(cou_id) references Course(id)
 )
 
-insert into StartClass values(1, 4, '35¶°Â¥ÏÂ', 'µÚ1-16ÖÜĞÇÆÚÈıµÚ3-4½Ú')
-insert into StartClass values(2, 1, 'ÂÖ»¬³¡', 'µÚ1-16ÖÜĞÇÆÚÈıµÚ3-4½Ú')
-insert into StartClass values(3, 3, 'ĞİÏĞ½¡Éí½ÌÊÒ£¨ÌåÓı²¿ÓÎÓ¾³ØÒ»²ã£©', 'µÚ1-16ÖÜĞÇÆÚÈıµÚ3-4½Ú')
-insert into StartClass values(4, 2, 'ÍøÇò³¡', 'µÚ1-16ÖÜĞÇÆÚÈıµÚ3-4½Ú')
-insert into StartClass values(5, 5, 'ÀºÇò³¡', 'µÚ1-16ÖÜĞÇÆÚÈıµÚ3-4½Ú')
+insert into StartClass values(1, 4, '35æ ‹æ¥¼ä¸‹', 'ç¬¬1-16å‘¨æ˜ŸæœŸä¸‰ç¬¬3-4èŠ‚')
+insert into StartClass values(2, 1, 'è½®æ»‘åœº', 'ç¬¬1-16å‘¨æ˜ŸæœŸä¸‰ç¬¬3-4èŠ‚')
+insert into StartClass values(3, 3, 'ä¼‘é—²å¥èº«æ•™å®¤ï¼ˆä½“è‚²éƒ¨æ¸¸æ³³æ± ä¸€å±‚ï¼‰', 'ç¬¬1-16å‘¨æ˜ŸæœŸä¸‰ç¬¬3-4èŠ‚')
+insert into StartClass values(4, 2, 'ç½‘çƒåœº', 'ç¬¬1-16å‘¨æ˜ŸæœŸä¸‰ç¬¬3-4èŠ‚')
+insert into StartClass values(5, 5, 'ç¯®çƒåœº', 'ç¬¬1-16å‘¨æ˜ŸæœŸä¸‰ç¬¬3-4èŠ‚')
 
 select * from StartClass
 
-create table Score(               --³É¼¨
+create table Score(               --æˆç»©
 	id int primary key,
-	cla_id int,           --¿ª¿Î°àºÅ£¨Íâ¼ü£©
-	stu_id int,               --Ñ§ºÅ£¨Íâ¼ü£©
-	score1 int,                     --Æ½Ê±³É¼¨
-	score2 int,                     --ÀíÂÛ³É¼¨
-	score3 int,                     --ÆÚÄ©¿¼ºË
-	total int,                   --×Ü³É¼¨
+	cla_id int,           --å¼€è¯¾ç­å·ï¼ˆå¤–é”®ï¼‰
+	stu_id int,               --å­¦å·ï¼ˆå¤–é”®ï¼‰
+	score1 int,                     --å¹³æ—¶æˆç»©
+	score2 int,                     --ç†è®ºæˆç»©
+	score3 int,                     --æœŸæœ«è€ƒæ ¸
+	total int,                   --æ€»æˆç»©
 	constraint ScoreFK1 foreign key(stu_id) references Student(id),
 	constraint ScoreFK2 foreign key(cla_id) references StartClass(id)
 )
-/*  ÔİÊ±²»Ö´ĞĞ ×¢Òâcla_idÓëstu_id
+/*  æš‚æ—¶ä¸æ‰§è¡Œ æ³¨æ„cla_idä¸stu_id
 insert into Score values(1, 1, 80, 85, 90, 86)
 insert into Score values(2, 1, 70, 82, 75, 75)
 insert into Score values(3, 2, 85, 90, 90, 89)
@@ -240,7 +240,7 @@ select * from StartClass
 select * from Score
 select * from Student
 
-create table t_User(  --¹ÜÀíÔ±
+create table t_User(  --ç®¡ç†å‘˜
 	id int primary key,
 	loginName nvarchar(12),
 	loginPassword nvarchar(20)
