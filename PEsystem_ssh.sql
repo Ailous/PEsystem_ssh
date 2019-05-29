@@ -2,7 +2,7 @@ create database PEsystem_ssh
 use PEsystem_ssh
 
 create table College(             --学院
-	id int primary key,             --id
+	id int identity(1,1) primary key,             --id
 	colName nvarchar(15) not null   --学院名称
 )
 
@@ -18,7 +18,7 @@ insert into College values('会计与金融学院')
 select * from College
 
 create table Profession(          --专业
-	id int primary key,             --id(3位数）
+	id int identity(1,1) primary key,             --id(3位数）
 	col_id int,                      --外键 学院College的id
 	proName nvarchar(15) not null,  --专业名称
 	constraint ProfessionFK1 foreign key(col_id) references College(id)
@@ -60,7 +60,7 @@ insert into Profession values(9, '审计学')
 select * from Profession
 
 create table Student(              --学生
-	id int primary key,              --id
+	id int identity(1,1) primary key,              --id
 	pro_id int,                       --外键 专业Profession的id
 	stuNo nvarchar(12),              --学号 2016 001 00001  【为了方便，你插入数据的时候就是年级+id  2016  00001 -》9位数字就好了】
 	stuName nvarchar(30) not null,    --姓名
@@ -125,7 +125,7 @@ insert into Student values(5, '201600051', '胡鹏', '男', '13134565978', '1234
 select * from Student
 
 create table Teacher(             --教师
-	id int primary key,
+	id int identity(1,1) primary key,
 	teaNo nvarchar(5),   --工号  00001
 	teaName nvarchar(30) not null,    --姓名
 	teaSex nvarchar(4) not null,      --性别
@@ -141,7 +141,7 @@ insert into Teacher values('00005', '赵老师', '男', '13145689896', '1234')
 select * from Teacher
 
 create table Course(              --课程
-	id int primary key,
+	id int identity(1,1) primary key,
 	couName nvarchar(30)  not null,   --课程名
 	couHour int not null,             --课时
 	couCredit int not null            --学分
@@ -156,7 +156,7 @@ insert into Course values('篮球', 32, 2)
 select* from Course
 
 create table StartClass(               --开课班
-	id int primary key,--id
+	id int identity(1,1) primary key,--id
 	cou_id int,                  --课程号(外键）
 	tea_id int,                  --工号(外键）
 	claLocation nvarchar(50),            --上课地点
@@ -174,7 +174,7 @@ insert into StartClass values(5, 5, '篮球场', '第1-16周星期三第3-4节')
 select * from StartClass
 
 create table Score(               --成绩
-	id int primary key,
+	id int identity(1,1) primary key,
 	cla_id int,           --开课班号（外键）
 	stu_id int,               --学号（外键）
 	score1 int,                     --平时成绩
@@ -241,7 +241,7 @@ select * from Score
 select * from Student
 
 create table t_User(  --管理员
-	id int primary key,
+	id int identity(1,1) primary key,
 	loginName nvarchar(12),
 	loginPassword nvarchar(20)
 )
