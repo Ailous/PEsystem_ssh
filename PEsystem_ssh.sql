@@ -62,7 +62,7 @@ select * from Profession
 create table Student(              --学生
 	id int identity(1,1) primary key,              --id
 	pro_id int,                       --外键 专业Profession的id
-	stuNo nvarchar(12),              --学号 2016 001 00001  【为了方便，你插入数据的时候就是年级+id  2016  00001 -》9位数字就好了】
+	stuNo nvarchar(9),              --学号 2016 001 00001  【为了方便，你插入数据的时候就是年级+id  2016  00001 -》9位数字就好了】
 	stuName nvarchar(30) not null,    --姓名
 	stuSex nvarchar(4) not null,      --性别
 	stuPhone nvarchar(12),            --联系电话
